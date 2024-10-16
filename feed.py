@@ -14,21 +14,21 @@ channel_elemet = xml_tree.SubElement(rss_element, 'channel')
 
 link_prefix = yaml_data['link']
 
-xml_tree.SubElement(channel_elemet,  'title').text = yaml_data['title']
-xml_tree.SubElement(channel_elemet,  'format').text = yaml_data['format']
-xml_tree.SubElement(channel_elemet,  'subtitle').text = yaml_data['subtitle']
-xml_tree.SubElement(channel_elemet,  'itunes:author').text = yaml_data['author']
-xml_tree.SubElement(channel_elemet,  'description').text = yaml_data['description']
-xml_tree.SubElement(channel_elemet,  'itunes:image', {'href': link_prefix + yaml_data['image']}) 
-xml_tree.SubElement(channel_elemet,  'language').text = yaml_data['language']
-xml_tree.SubElement(channel_elemet,  'link').text = link_prefix
+xml_tree.SubElement(channel_elemet, 'title').text = yaml_data['title']
+xml_tree.SubElement(channel_elemet, 'format').text = yaml_data['format']
+xml_tree.SubElement(channel_elemet, 'subtitle').text = yaml_data['subtitle']
+xml_tree.SubElement(channel_elemet, 'itunes:author').text = yaml_data['author']
+xml_tree.SubElement(channel_elemet, 'description').text = yaml_data['description']
+xml_tree.SubElement(channel_elemet, 'itunes:image', {'href': link_prefix + yaml_data['image']}) 
+xml_tree.SubElement(channel_elemet, 'language').text = yaml_data['language']
+xml_tree.SubElement(channel_elemet, 'link').text = link_prefix
 
 xml_tree.SubElement(channel_elemet,  'itunes:category', {'text': yaml_data['category']}) 
 
 for item in yaml_data['item']:
     item_element = xml_tree.SubElement(channel_elemet, 'item')
     xml_tree.SubElement(item_element, 'title').text = item['title']
-    xml_tree.SubElement(item_element, 'itune:author').text = yaml_data['author']
+    xml_tree.SubElement(item_element, 'itunes:author').text = yaml_data['author']
     xml_tree.SubElement(item_element, 'description').text = item['description']
     xml_tree.SubElement(item_element, 'itunes:duration').text = item['duration']
     xml_tree.SubElement(item_element, 'pubDate').text = item['published']
